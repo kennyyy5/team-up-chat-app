@@ -13,10 +13,10 @@ import path from "path"
 dotenv.config()
 connectDB()
 const app = express()
-const http = http.createServer(app);
+// const http = http.createServer(app);
 
-http.keepAliveTimeout = 120000; // 120 seconds
-http.headersTimeout = 120000;
+// http.keepAliveTimeout = 120000; // 120 seconds
+// http.headersTimeout = 120000;
 
 app.use(express.json())
 
