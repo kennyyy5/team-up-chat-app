@@ -2,11 +2,11 @@
   "name": "team-up",
   "version": "1.0.0",
   "main": "server.js",
-  "type": "module",
+
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon backend/server.js",
-    "build": "npm install --legacy-peer-deps && npm install --legacy-peer-deps --prefix frontend && npm run build --prefix frontend && cd frontend && npx serve -s build"
+    "build": "npm install --legacy-peer-deps && npm install --legacy-peer-deps --prefix frontend && npm run build --prefix frontend"
   },
   "keywords": [],
   "author": "Kenny Adenuga",
