@@ -23,8 +23,5 @@
     "mongoose": "^8.5.3",
     "nodemon": "^3.1.4",
     "socket.io": "^4.7.5"
-  },
-  "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }
 }
