@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@100..800&family=Press+Start+2P&display=swap');
+
+.App{
+    min-height: 100vh;
+    display: flex;
+    background-color: teal;
+    color: black;
+}
+
+.upload{
+    font-size: 16px;
+    background-color: white;
+    border-radius: 50px;
+   
+    width: 350px;
+    outline: none;
+}
+
+::-webkit-file-upload-button{
+    color: white;
+    background-color: teal;
+    border-color: teal;
+    border: none;
+    border-radius: 50px;
+   
+    outline: none;
+}
+
+::-webkit-file-upload-button:hover {
+    cursor: pointer;
+    background-color: #206a5d;
+    
+}
+
+.upload:hover {
+    cursor: pointer;
+}
+
+::-webkit-scrollbar{
+    width: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(136,136,136,0.281);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+.messages{
+    
+}
+
