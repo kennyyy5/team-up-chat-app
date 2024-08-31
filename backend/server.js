@@ -13,8 +13,13 @@ import path from "path"
 dotenv.config()
 connectDB()
 const app = express()
+const server = http.createServer(app);
+
+server.keepAliveTimeout = 120000; // 120 seconds
+server.headersTimeout = 120000;
 
 app.use(express.json())
+
 
 const PORT = process.env.PORT || 5000
 
@@ -43,7 +48,7 @@ app.use(notFound);
 app.use(errorHandler)
 
 
-const server = app.listen(PORT,console.log(`Server started on PORT ${PORT}`.yellow.bold))
+const server = app.listen(PORT, '0.0.0.0', console.log(`Server started on PORT ${PORT}`.yellow.bold))
 
 
 const io = new Server(server, {
