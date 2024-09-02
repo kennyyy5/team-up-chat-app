@@ -1,5 +1,5 @@
 import { ViewIcon } from '@chakra-ui/icons'
-import { Badge, Button, IconButton, Image, useDisclosure, VStack, Wrap } from '@chakra-ui/react'
+import { Badge, Button, IconButton, Image, useDisclosure, VStack } from '@chakra-ui/react'
 import React from 'react'
 import {
   Modal,

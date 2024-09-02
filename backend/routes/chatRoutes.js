@@ -7,8 +7,7 @@ import {
   removeFromGroup,
   addToGroup,
   renameGroup,
-  fetchNotifications,
-  removeFromNotifs,
+  
   addToNotifs,
 } from "../controllers/chatControllers.js";
 
@@ -20,6 +19,3 @@ chatRouter.route("/group").post(protect, createGroupChat)
 chatRouter.route("/rename").put(protect, renameGroup)
 chatRouter.route("/groupremove").put(protect, removeFromGroup)
 chatRouter.route("/groupadd").put(protect, addToGroup)
-chatRouter.route("/notification").get(protect, fetchNotifications)
-chatRouter.route("/notificationremove").put(protect, removeFromNotifs) //
-chatRouter.route("/notificationadd").put(protect, addToNotifs) //

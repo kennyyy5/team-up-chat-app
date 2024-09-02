@@ -20,6 +20,12 @@ const app = express()
 
 app.use(express.json())
 
+import cors from 'cors';
+
+app.use(cors({
+    origin: 'http://localhost:5000' // or '*' to allow all origins (not recommended for production)
+}));
+
 
 const PORT = process.env.PORT || 5000
 
@@ -54,7 +60,7 @@ const server = app.listen(PORT, '0.0.0.0', console.log(`Server started on PORT $
 const io = new Server(server, {
   pingTimeout:60000,
   cors: {
-    origin: "http://localhost:3000"
+    origin: "http://localhost:5000"
   }
 });
 

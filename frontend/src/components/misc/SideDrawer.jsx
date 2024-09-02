@@ -1,5 +1,5 @@
 import { Avatar, Box, Button, Drawer, DrawerBody, DrawerContent, DrawerHeader, DrawerOverlay, Input, Menu, MenuButton, MenuDivider, MenuItem, MenuList, Spinner, Text, Tooltip, useDisclosure, useToast } from '@chakra-ui/react'
-import React, {useEffect, useState} from 'react'
+import React, { useState} from 'react'
 import {BellIcon, ChevronDownIcon} from "@chakra-ui/icons"
 import { ChatState } from '../../Context/ChatProvider'
 import ProfileModal from './ProfileModal'
@@ -26,25 +26,6 @@ const SideDrawer = () => {
         localStorage.removeItem("userInfo")
         navigate("/")
     }
-
-    const removeFromNotifs=async(newMessage)=>{
-     try{
-        const config = {
-        headers: {
-            "Content-Type": "application/json",
-          Authorization: `Bearer ${user.token}`,
-        },
-      };
-      
-      const { data } = await axios.put("/api/chat/notification",{content: newMessage}, config);
-      console.log(data)
-      //setNotification(data)
-
-            }
-            catch(err){
-              console.error(err)
-            }
-  }
 
     const toast = useToast()
 
@@ -129,23 +110,7 @@ const SideDrawer = () => {
         
         }
     }
-  const fetchNotifications=async()=>{
-     try {
-      const config = {
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      }
-
-      const { data } = await axios.get("/api/chat/notification", config);
-      console.log("notifications",data)
-      //setNotification(data)
-      //console.log("called")
-    } catch(err){
-        console.error(err)
-        setNotification([])
-    }
-      }
+  
   return (
     <>
         <Box
@@ -243,13 +208,13 @@ const SideDrawer = () => {
                 <Button onClick={handleSearch}>Go</Button>
             </Box>
             {loading ? (<ChatLoading/>):(
-                searchResult?.map(user=>(
+                Array.isArray(searchResult) ? searchResult?.map(user=>(
                     <UserListItem
                       key={user._id}
                       user={user}
                       handleFunction={()=>accessChat(user._id)}
                     />
-                ))
+                )):[]
             )}
             {loadingChat && <Spinner ml="auto" display="flex"/>}
         </DrawerBody>
