@@ -60,7 +60,9 @@ const server = app.listen(PORT, '0.0.0.0', console.log(`Server started on PORT $
 const io = new Server(server, {
   pingTimeout:60000,
   cors: {
-    origin: "http://localhost:5000"
+    origin: 'http://localhost:3000',
+        methods: ['GET', 'POST'],
+        credentials: true
   }
 });
 
